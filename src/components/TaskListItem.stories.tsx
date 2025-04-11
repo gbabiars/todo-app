@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import TaskListItem from "./TaskListItem";
+import { useState } from "react";
 
 const meta: Meta<typeof TaskListItem> = {
   component: TaskListItem,
@@ -34,5 +35,20 @@ export const Completed: Story = {
     ...Default.args,
     variant: "completed",
     dueDate: null,
+  },
+};
+
+export const Interactive: Story = {
+  render: () => {
+    const [isComplete, setIsComplete] = useState(false);
+
+    return (
+      <TaskListItem
+        id="4"
+        description="Walk the dog"
+        variant={isComplete ? "completed" : "default"}
+        onComplete={() => setIsComplete(!isComplete)}
+      />
+    );
   },
 };

@@ -17,7 +17,22 @@ export const Default: Story = {
   args: {
     id: "4",
     description: "Walk the dog",
-    isComplete: false,
+    dueDate: null,
+  },
+};
+
+export const Overdue: Story = {
+  args: {
+    ...Default.args,
+    variant: "overdue",
+    dueDate: new Date("2025-04-10"),
+  },
+};
+
+export const Completed: Story = {
+  args: {
+    ...Default.args,
+    variant: "completed",
     dueDate: null,
   },
 };

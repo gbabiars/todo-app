@@ -1,6 +1,4 @@
-import { Checkbox } from "radix-ui";
-import { CheckIcon } from "@radix-ui/react-icons";
-
+import TaskCheckbox from "./TaskCheckbox";
 function combineClasses(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
@@ -21,6 +19,8 @@ function TaskListItem({
   variant = "default",
   onComplete,
 }: TaskListItemProps) {
+  const taskId = `task-${id}`;
+
   return (
     <div
       className={combineClasses(
@@ -31,18 +31,13 @@ function TaskListItem({
       )}
     >
       <div className="flex items-center gap-3">
-        <Checkbox.Root
-          aria-labelledby={`task-${id}`}
+        <TaskCheckbox
+          ariaLabelledby={taskId}
           checked={variant === "completed"}
           onCheckedChange={onComplete}
-          className="group flex items-center justify-center h-3 w-3 rounded-xs border border-black active:bg-black data-[state=checked]:bg-black transition-all"
-        >
-          <Checkbox.Indicator>
-            <CheckIcon className="h-3 w-3 text-white group-active:opacity-0 transition-all" />
-          </Checkbox.Indicator>
-        </Checkbox.Root>
+        />
         <p
-          id={`task-${id}`}
+          id={taskId}
           className={combineClasses(
             "text-lg",
             variant === "completed" ? "line-through" : ""

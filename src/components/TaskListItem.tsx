@@ -1,7 +1,5 @@
 import TaskCheckbox from "./TaskCheckbox";
-function combineClasses(...classes: string[]) {
-  return classes.filter(Boolean).join(" ");
-}
+import { combineClasses } from "./utils";
 
 interface TaskListItemProps {
   id: string;

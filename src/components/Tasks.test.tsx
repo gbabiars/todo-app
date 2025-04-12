@@ -1,32 +1,43 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import Tasks from "./Tasks";
+import { IntlProvider } from "react-intl";
+
+function renderWithIntl(component: React.ReactNode) {
+  return render(
+    <IntlProvider messages={{}} locale="en">
+      {component}
+    </IntlProvider>
+  );
+}
 
 describe("Tasks", () => {
   it("should render empty tasks", () => {
-    render(<Tasks tasks={[]} status="success" onComplete={() => {}} />);
+    renderWithIntl(<Tasks tasks={[]} status="success" onComplete={() => {}} />);
 
-    expect(screen.getByText("You do not have any tasks.")).toBeInTheDocument();
+    expect(
+      screen.getByText("You do not have any todo items.")
+    ).toBeInTheDocument();
   });
 
   it("should render loading tasks", () => {
-    render(<Tasks tasks={[]} status="loading" onComplete={() => {}} />);
+    renderWithIntl(<Tasks tasks={[]} status="loading" onComplete={() => {}} />);
 
     expect(screen.getByRole("status")).toBeInTheDocument();
   });
 
   it("should render error", () => {
-    render(<Tasks tasks={[]} status="error" onComplete={() => {}} />);
+    renderWithIntl(<Tasks tasks={[]} status="error" onComplete={() => {}} />);
 
     expect(
       screen.getByText(
-        "There was an error loading tasks, please try again later."
+        "There was an error loading todo items, please try again later."
       )
     ).toBeInTheDocument();
   });
 
   it("should render tasks", () => {
-    render(
+    renderWithIntl(
       <Tasks
         tasks={[
           { id: "1", description: "Task 1", isComplete: false, dueDate: null },

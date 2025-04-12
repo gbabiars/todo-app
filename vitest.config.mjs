@@ -7,5 +7,6 @@ export default defineConfig({
   test: {
     environment: "jsdom",
     setupFiles: "./vitest.setup.mjs",
+    include: ["src/**/*.{test,spec}.?(c|m)[jt]s?(x)"],
   },
 });

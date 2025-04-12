@@ -78,8 +78,6 @@ End to end testing tests using Playwright can be run using:
 pnpm run e2e
 ```
 
-**Note:** This requires the app already running at http://localhost:3000.
-
 By default, these will run headless. To update this, please update the `playwright.config.ts` with `headless: false`.
 
 ## Linting

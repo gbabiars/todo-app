@@ -19,7 +19,7 @@ export default function Tasks({ tasks, status, onComplete }: TasksProps) {
       <div>
         <FormattedMessage
           id="error.loading"
-          defaultMessage="There was an error loading tasks, please try again later."
+          defaultMessage="There was an error loading todo items, please try again later."
         />
       </div>
     );
@@ -30,7 +30,7 @@ export default function Tasks({ tasks, status, onComplete }: TasksProps) {
       <div>
         <FormattedMessage
           id="empty"
-          defaultMessage="You do not have any tasks."
+          defaultMessage="You do not have any todo items."
         />
       </div>
     );

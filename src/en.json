@@ -1,5 +1,6 @@
 {
   "title": "Todo App",
-  "error.loading": "There was an error loading tasks, please try again later.",
-  "empty": "You do not have any tasks."
+  "error.loading": "There was an error loading todo items, please try again later.",
+  "error.saving": "There was an error saving the todo item, please try again later.",
+  "empty": "You do not have any todo items."
 }

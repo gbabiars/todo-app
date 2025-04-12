@@ -1,11 +1,5 @@
 import TaskListItem from "./TaskListItem";
-
-type Task = {
-  id: string;
-  description: string;
-  dueDate?: Date | null;
-  isComplete?: boolean;
-};
+import { Task } from "./types";
 
 interface TaskListProps {
   tasks: Task[];

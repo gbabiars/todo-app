@@ -4,12 +4,15 @@ import { useEffect, useState } from "react";
 import { Task } from "../components/types";
 import TaskList from "../components/TaskList";
 import TaskListSkeleton from "../components/TaskListSkeleton";
+import { sortTasks } from "../components/utils";
 
 function normalizeTasks(tasks: Task[]) {
-  return tasks.map((task) => ({
-    ...task,
-    dueDate: task.dueDate ? new Date(task.dueDate) : null,
-  }));
+  return sortTasks(
+    tasks.map((task) => ({
+      ...task,
+      dueDate: task.dueDate ? new Date(task.dueDate) : null,
+    }))
+  );
 }
 
 export default function TasksPage() {

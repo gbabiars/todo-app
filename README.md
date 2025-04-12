@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is a basic Todo App with using a mock API.
+
+The app is built using the following technologies:
+
+- [Next.js](https://nextjs.org/) as the React application framework
+- [TypeScript](https://www.typescriptlang.org/)
+- [TailwindCSS](https://tailwindcss.com/) for styling
+- [Radix UI](https://www.radix-ui.com/) for accessibility
+- [React Intl](https://formatjs.github.io/docs/getting-started/installation/) for internationalization
+- [Vitest](https://vitest.dev/) for unit and component testing
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) for accessible component testing
+- [Playwright](https://playwright.dev/) for end to end testing in the browser
+- [ESLint](https://eslint.org/) for linting
+- [Storybook](https://storybook.js.org/) for component development and documentation
+- [pnpm](https://pnpm.io/installation) as package manager
 
 ## Getting Started
 
-First, run the development server:
+In order to properly set up your local environment, you will need to add a file `env.local` to the root with the following (using your API key):
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+NEXT_PUBLIC_API_KEY=YOUR_API_KEY
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This file is ignored by `git` and is required to properly authenticate!
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+If you do not already have `pnpm` installed, please do so using their [install guide](https://pnpm.io/installation).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Next, install the dependencies for the project:
 
-## Learn More
+```bash
+pnpm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+If you are going to run E2E tests, you will need to install Playwright:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+pnpm exec playwright install
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Development
 
-## Deploy on Vercel
+### Next.js
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+To start the Next.js app run:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+pnpm run dev
+```
+
+This will open the app at http://localhost:3000.
+
+### Storybook
+
+To start the Storybook instance run:
+
+```
+pnpm run storybook
+```
+
+This will open the Storybook instance at http://localhost:6006.
+
+## Testing
+
+### Component/Unit Tests
+
+Component and unit tests using Vitest can be run using:
+
+```
+pnpm run test
+```
+
+### E2E Tests
+
+End to end testing tests using Playwright can be run using:
+
+```
+pnpm run e2e
+```
+
+**Note:** This requires the app already running at http://localhost:3000.
+
+By default, these will run headless. To update this, please update the `playwright.config.ts` with `headless: false`.
+
+## Linting
+
+To lint the project using ESLint run:
+
+```
+pnpm run lint
+```

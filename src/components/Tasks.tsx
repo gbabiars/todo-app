@@ -38,5 +38,9 @@ export default function Tasks({ tasks, status, onComplete }: TasksProps) {
 
   const sortedTasks = sortTasks(tasks);
 
-  return <TaskList tasks={sortedTasks} onComplete={onComplete} />;
+  return (
+    <div data-testid="tasks">
+      <TaskList tasks={sortedTasks} onComplete={onComplete} />
+    </div>
+  );
 }

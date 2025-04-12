@@ -10,7 +10,7 @@ test("has title", async ({ page }) => {
 test("should render tasks", async ({ page }) => {
   await page.goto("/");
 
-  await expect(page.getByRole("list")).toBeVisible();
+  await expect(page.getByTestId("tasks")).toBeVisible();
 
   const tasks = await page.getByRole("listitem").all();
 

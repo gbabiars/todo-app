@@ -2,24 +2,20 @@
 
 import { useEffect, useState } from "react";
 import { Task } from "../components/types";
-import TaskList from "../components/TaskList";
-import TaskListSkeleton from "../components/TaskListSkeleton";
-import { sortTasks } from "../components/utils";
+import Tasks from "../components/Tasks";
 
 function normalizeTasks(tasks: Task[]) {
-  return sortTasks(
-    tasks.map((task) => ({
-      ...task,
-      dueDate: task.dueDate ? new Date(task.dueDate) : null,
-    }))
-  );
+  return tasks.map((task) => ({
+    ...task,
+    dueDate: task.dueDate ? new Date(task.dueDate) : null,
+  }));
 }
 
 export default function TasksPage() {
   const [tasks, setTasks] = useState<Task[]>([]);
-  const [status, setStatus] = useState<
-    "idle" | "loading" | "error" | "success"
-  >("idle");
+  const [status, setStatus] = useState<"loading" | "error" | "success">(
+    "loading"
+  );
 
   useEffect(() => {
     setStatus("loading");
@@ -43,9 +39,7 @@ export default function TasksPage() {
     <main className="w-full max-w-md mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Tasks</h1>
 
-      {status === "loading" && <TaskListSkeleton />}
-      {status === "error" && <div>Error</div>}
-      {status === "success" && <TaskList tasks={tasks} onComplete={() => {}} />}
+      <Tasks tasks={tasks} status={status} onComplete={() => {}} />
     </main>
   );
 }

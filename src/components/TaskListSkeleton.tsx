@@ -21,7 +21,7 @@ function TaskListSkeleton() {
   }, []);
 
   return (
-    <div className="flex flex-col gap-[11px]">
+    <div className="flex flex-col gap-[11px]" role="status">
       <TaskListSkeletonItem isAnimating={isAnimating} />
       <TaskListSkeletonItem isAnimating={isAnimating} />
       <TaskListSkeletonItem isAnimating={isAnimating} />

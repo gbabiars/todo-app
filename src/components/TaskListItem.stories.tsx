@@ -22,11 +22,18 @@ export const Default: Story = {
   },
 };
 
+export const DefaultWithDueDate: Story = {
+  args: {
+    ...Default.args,
+    dueDate: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000), // 3 days from now
+  },
+};
+
 export const Overdue: Story = {
   args: {
     ...Default.args,
     variant: "overdue",
-    dueDate: new Date("2025-04-10"),
+    dueDate: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000), // 3 days ago
   },
 };
 
@@ -35,6 +42,13 @@ export const Completed: Story = {
     ...Default.args,
     variant: "completed",
     dueDate: null,
+  },
+};
+
+export const CompletedWithDueDate: Story = {
+  args: {
+    ...Completed.args,
+    dueDate: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000), // 3 days from now
   },
 };
 

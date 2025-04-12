@@ -22,7 +22,7 @@ function TaskListItem({
   return (
     <div
       className={combineClasses(
-        "flex items-center justify-between py-[5px] px-3",
+        "flex items-center justify-between py-[5px] ps-3 pe-2 gap-3",
         variant === "default" ? "bg-neutral" : "",
         variant === "overdue" ? "bg-danger" : "",
         variant === "completed" ? "bg-success" : ""
@@ -44,6 +44,12 @@ function TaskListItem({
           {description}
         </p>
       </div>
+
+      {dueDate && (
+        <p className="text-lg px-2 border -my-px">
+          {dueDate.toLocaleDateString()}
+        </p>
+      )}
     </div>
   );
 }

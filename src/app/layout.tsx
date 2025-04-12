@@ -15,8 +15,8 @@ const robotoMono = Roboto_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Task List",
-  description: "A simple task list",
+  title: "Todo App",
+  description: "A simple todo list",
 };
 
 export default function RootLayout({

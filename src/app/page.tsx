@@ -80,7 +80,7 @@ export default function TasksPage() {
 
   return (
     <main className="w-full max-w-xl mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Tasks</h1>
+      <h1 className="text-2xl font-bold mb-4">Todo App</h1>
 
       <Tasks tasks={tasks} status={status} onComplete={handleComplete} />
     </main>

@@ -3,7 +3,8 @@ import { test, expect } from "@playwright/test";
 test("has title", async ({ page }) => {
   await page.goto("/");
 
-  await expect(page).toHaveTitle(/Task List/);
+  await expect(page).toHaveTitle(/Todo App/);
+  await expect(page.getByRole("heading", { name: "Todo App" })).toBeVisible();
 });
 
 test("should render tasks", async ({ page }) => {

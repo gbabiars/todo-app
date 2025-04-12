@@ -3,6 +3,7 @@ import UpdateErrorToast from "./UpdateErrorToast";
 import { Toast } from "radix-ui";
 import React from "react";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const decorator = (Story: any) => (
   <Toast.Provider>
     <Story />

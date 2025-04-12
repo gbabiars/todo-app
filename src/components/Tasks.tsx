@@ -2,6 +2,7 @@ import { Task } from "./types";
 import TaskList from "./TaskList";
 import TaskListSkeleton from "./TaskListSkeleton";
 import { sortTasks } from "./utils";
+import { FormattedMessage } from "react-intl";
 
 interface TasksProps {
   tasks: Task[];
@@ -14,11 +15,25 @@ export default function Tasks({ tasks, status, onComplete }: TasksProps) {
     return <TaskListSkeleton />;
   }
   if (status === "error") {
-    return <div>There was an error loading tasks, please try again later.</div>;
+    return (
+      <div>
+        <FormattedMessage
+          id="error.loading"
+          defaultMessage="There was an error loading tasks, please try again later."
+        />
+      </div>
+    );
   }
 
   if (tasks.length === 0) {
-    return <div>You do not have any tasks.</div>;
+    return (
+      <div>
+        <FormattedMessage
+          id="empty"
+          defaultMessage="You do not have any tasks."
+        />
+      </div>
+    );
   }
 
   const sortedTasks = sortTasks(tasks);

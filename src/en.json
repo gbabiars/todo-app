@@ -1,0 +1,5 @@
+{
+  "title": "Todo App",
+  "error.loading": "There was an error loading tasks, please try again later.",
+  "empty": "You do not have any tasks."
+}

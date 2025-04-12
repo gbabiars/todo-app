@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import { Task } from "../components/types";
 import Tasks from "../components/Tasks";
+import { IntlProvider, FormattedMessage } from "react-intl";
+import messages from "../en.json";
 
 function normalizeTasks(tasks: Task[]) {
   return tasks.map((task) => ({
@@ -79,10 +81,14 @@ export default function TasksPage() {
   }
 
   return (
-    <main className="w-full max-w-xl mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Todo App</h1>
+    <IntlProvider messages={messages} locale="en" defaultLocale="en">
+      <main className="w-full max-w-xl mx-auto p-4">
+        <h1 className="text-2xl font-bold mb-4">
+          <FormattedMessage id="title" defaultMessage="Todo App" />
+        </h1>
 
-      <Tasks tasks={tasks} status={status} onComplete={handleComplete} />
-    </main>
+        <Tasks tasks={tasks} status={status} onComplete={handleComplete} />
+      </main>
+    </IntlProvider>
   );
 }

@@ -8,6 +8,7 @@ interface TaskListItemProps {
   dueDate?: Date | null;
   variant?: "default" | "overdue" | "completed";
   onComplete: () => void;
+  role?: "listitem";
 }
 
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
@@ -22,11 +23,13 @@ function TaskListItem({
   dueDate = null,
   variant = "default",
   onComplete,
+  role,
 }: TaskListItemProps) {
   const taskId = `task-${id}`;
 
   return (
     <div
+      role={role}
       className={combineClasses(
         "flex items-center justify-between py-[5px] ps-3 pe-2 gap-3",
         variant === "default" ? "bg-neutral" : "",

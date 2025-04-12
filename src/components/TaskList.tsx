@@ -20,9 +20,10 @@ function getTaskVariant(task: Task) {
 
 export default function TaskList({ tasks, onComplete }: TaskListProps) {
   return (
-    <div className="flex flex-col gap-[11px]">
+    <div className="flex flex-col gap-[11px]" role="list">
       {tasks.map((task) => (
         <TaskListItem
+          role="listitem"
           key={task.id}
           id={task.id}
           description={task.description}

@@ -87,3 +87,29 @@ To lint the project using ESLint run:
 ```
 pnpm run lint
 ```
+
+## Architecture
+
+This application use Next.js and React to create a component driven architecture. This starts with the single `app/page.tsx` which is responsible for the for the fetching of data and state management. The descendent components are largely presentational and do not maintain their own state. The tasks flow down as props and the onComplete callback propagates up.
+
+For styling, this uses TailwindCSS as the base. Custom variables have been added for the todo colors neutral, danger and success. The fonts are using Roboto to align with design specifications.
+
+Radix UI primitives are being used to ensure accesible components. This supports keyboard accessibility and ARIA attributes but are styled to match the app needs.
+
+For testing, this application uses a combination of unit tests with Vitest and React Testing Library, and end to end tests with Playwright.
+
+Storybook is being used to develop and document the components. This can be run locally to view and interact with the components and their variations. This component driven development approach allows for the components to be tested in isolation and ensures that they are working as expected without having to run the app.
+
+## Additional Considerations
+
+### Error Handling
+
+The application has a basic error handling mechanism. When a request fails, the error is logged to the console and the user is presented with a generic error message. This includes errors for both initial loading and when updating a todo item.
+
+### Loading State
+
+The application has a basic loading state. When the data is being fetched, the user is presented with a skeleton loader.
+
+### Empty State
+
+When there are no todo items, the user is presented with a message to the effect.
